@@ -19,13 +19,11 @@ namespace UserControlTest
 
         public MainWindowViewModel()
         {
+            setCommandUserControl = new DelegateCommand(() => { SomeValueUserControl = 11; }, () => { return String.IsNullOrEmpty(ValidateSomeValueUserControl()); });
+            setCommandCustomControl = new DelegateCommand(() => { SomeValueCustomControl = 13; }, () => { return String.IsNullOrEmpty(ValidateSomeValueCustomControl()); });
+
             SomeValueUserControl = 10;
-
-            setCommandUserControl = new DelegateCommand(() => { SomeValueUserControl = 11; });
-
             SomeValueCustomControl = 14;
-
-            setCommandCustomControl = new DelegateCommand(() => { SomeValueCustomControl = 13; });
         }
 
         private int someValueUserControl;
@@ -39,8 +37,18 @@ namespace UserControlTest
             {
                 someValueUserControl = value;
                 NotifyPropertyChanged("SomeValueUserControl");
+                setCommandUserControl.RaiseCanExecuteChanged();
             }
         }
+
+        private string ValidateSomeValueUserControl()
+        {
+            if (someValueUserControl > 20)
+                return "Out of the range (should be less then 20)";
+            else
+                return "";
+        }
+
 
         private int someValueCustomControl;
         public int SomeValueCustomControl
@@ -53,8 +61,19 @@ namespace UserControlTest
             {
                 someValueCustomControl = value;
                 NotifyPropertyChanged("SomeValueCustomControl");
+                setCommandCustomControl.RaiseCanExecuteChanged();
             }
         }
+
+        private string ValidateSomeValueCustomControl()
+        {
+            if (someValueCustomControl > 40)
+                return "Out of the range (should be less then 40)";
+            else
+                return "";
+        }
+
+
 
         public string this[string columnName]
         {
@@ -62,13 +81,11 @@ namespace UserControlTest
             {
                 if(columnName == "SomeValueUserControl")
                 {
-                    if (someValueUserControl > 20)
-                        return "Out of the range (should be less then 20)";
+                    return ValidateSomeValueUserControl();
                 }
                 else if (columnName == "SomeValueCustomControl")
                 {
-                    if (someValueCustomControl > 40)
-                        return "Out of the range (should be less then 40)";
+                    return ValidateSomeValueCustomControl();
                 }
                 return "";
             }
