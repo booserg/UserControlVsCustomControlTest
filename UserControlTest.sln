@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserControlsLib", "UserCont
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomControlsLib", "CustomControlsLib\CustomControlsLib.csproj", "{4396913A-7B71-4639-BE0F-EF1D9BF619A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Styles", "Styles\Styles.csproj", "{75E96394-78E8-4681-AEE4-8022C5795DC9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4396913A-7B71-4639-BE0F-EF1D9BF619A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4396913A-7B71-4639-BE0F-EF1D9BF619A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4396913A-7B71-4639-BE0F-EF1D9BF619A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75E96394-78E8-4681-AEE4-8022C5795DC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75E96394-78E8-4681-AEE4-8022C5795DC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75E96394-78E8-4681-AEE4-8022C5795DC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75E96394-78E8-4681-AEE4-8022C5795DC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
